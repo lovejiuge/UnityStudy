@@ -1,0 +1,21 @@
+{
+    "Lua.diagnostics.globals": [
+        "socket",
+        "getObject",
+        "sprites",
+        "RectTransform",
+        "GameObject",
+        "height",
+        "width",
+        "Image",
+        "obroot",
+        "items",
+        "Text",
+        "btnob",
+        "itemob",
+        "addbtnob",
+        "delebtnob",
+        "targetObject",
+        "import"
+    ]
+}
