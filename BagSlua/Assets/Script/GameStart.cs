@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameStart : MonoBehaviour
 {
 	public LuaSvr lua_Svr;
+	public string path = "/Assets/Script/Lua/2.0/";
 	void Start()
 	{
 		lua_Svr = new LuaSvr();
@@ -31,7 +32,7 @@ public class GameStart : MonoBehaviour
 	public byte[] LuaLoder(string fn, ref string absoluteFn)
 	{
 		string newfn = fn.Replace(".", "/");
-		string file_path = Directory.GetCurrentDirectory() + "/Assets/Script/Lua/" + newfn + ".lua";
+		string file_path = Directory.GetCurrentDirectory() + path + newfn + ".lua";
 		return File.ReadAllBytes(file_path);
 	}
 }

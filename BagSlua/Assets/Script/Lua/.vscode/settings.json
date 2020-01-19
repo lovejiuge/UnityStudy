@@ -16,6 +16,7 @@
         "addbtnob",
         "delebtnob",
         "targetObject",
-        "import"
+        "import",
+        "Button"
     ]
 }

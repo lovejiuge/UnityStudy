@@ -12,9 +12,8 @@ public class MyWindow : EditorWindow {
 	[MenuItem("Window/My Window")]
 	static void Init()
 	{
-		//MyWindow window = (MyWindow)EditorWindow.GetWindow(typeof(MyWindow));
-		GetWindow<MyWindow>("Maximized");
-		//window.Show();
+		MyWindow window = (MyWindow)EditorWindow.GetWindow(typeof(MyWindow));
+		window.Show();
 	}
 
 	void OnGUI()
@@ -26,7 +25,6 @@ public class MyWindow : EditorWindow {
 		myBool = EditorGUILayout.Toggle("Toggle", myBool);
 		myFloat = EditorGUILayout.Slider("Slider", myFloat, -3, 3);
 		EditorGUILayout.EndToggleGroup();
-		maximized = GUILayout.Toggle(maximized, "Maximize window");
 	}
 	// Use this for initialization
 	void Start () {

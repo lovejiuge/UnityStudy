@@ -106,7 +106,7 @@ namespace SLua {
 	public class MyGameObject : LuaObject {
 		[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 		public static int Find_s(IntPtr l) {
-			UnityEngine.Debug.Log ("GameObject.Find overloaded my MyGameObject.Find");
+
 			try {
 				System.String a1;
 				checkType(l,1,out a1);

@@ -778,6 +778,70 @@ public class Lua_UnityEngine_UI_Graphic : LuaObject {
 	}
 	[SLua.MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	[UnityEngine.Scripting.Preserve]
+	static public int get_grey(IntPtr l) {
+		try {
+			#if DEBUG
+			var method = System.Reflection.MethodBase.GetCurrentMethod();
+			string methodName = GetMethodName(method);
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.BeginSample(methodName);
+			#else
+			Profiler.BeginSample(methodName);
+			#endif
+			#endif
+			UnityEngine.UI.Graphic self=(UnityEngine.UI.Graphic)checkSelf(l);
+			pushValue(l,true);
+			pushValue(l,self.grey);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+		#if DEBUG
+		finally {
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.EndSample();
+			#else
+			Profiler.EndSample();
+			#endif
+		}
+		#endif
+	}
+	[SLua.MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int set_grey(IntPtr l) {
+		try {
+			#if DEBUG
+			var method = System.Reflection.MethodBase.GetCurrentMethod();
+			string methodName = GetMethodName(method);
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.BeginSample(methodName);
+			#else
+			Profiler.BeginSample(methodName);
+			#endif
+			#endif
+			UnityEngine.UI.Graphic self=(UnityEngine.UI.Graphic)checkSelf(l);
+			bool v;
+			checkType(l,2,out v);
+			self.grey=v;
+			pushValue(l,true);
+			return 1;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+		#if DEBUG
+		finally {
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.EndSample();
+			#else
+			Profiler.EndSample();
+			#endif
+		}
+		#endif
+	}
+	[SLua.MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
 	static public int get_raycastTarget(IntPtr l) {
 		try {
 			#if DEBUG
@@ -824,6 +888,70 @@ public class Lua_UnityEngine_UI_Graphic : LuaObject {
 			bool v;
 			checkType(l,2,out v);
 			self.raycastTarget=v;
+			pushValue(l,true);
+			return 1;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+		#if DEBUG
+		finally {
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.EndSample();
+			#else
+			Profiler.EndSample();
+			#endif
+		}
+		#endif
+	}
+	[SLua.MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int get_alpha(IntPtr l) {
+		try {
+			#if DEBUG
+			var method = System.Reflection.MethodBase.GetCurrentMethod();
+			string methodName = GetMethodName(method);
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.BeginSample(methodName);
+			#else
+			Profiler.BeginSample(methodName);
+			#endif
+			#endif
+			UnityEngine.UI.Graphic self=(UnityEngine.UI.Graphic)checkSelf(l);
+			pushValue(l,true);
+			pushValue(l,self.alpha);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+		#if DEBUG
+		finally {
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.EndSample();
+			#else
+			Profiler.EndSample();
+			#endif
+		}
+		#endif
+	}
+	[SLua.MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int set_alpha(IntPtr l) {
+		try {
+			#if DEBUG
+			var method = System.Reflection.MethodBase.GetCurrentMethod();
+			string methodName = GetMethodName(method);
+			#if UNITY_5_5_OR_NEWER
+			UnityEngine.Profiling.Profiler.BeginSample(methodName);
+			#else
+			Profiler.BeginSample(methodName);
+			#endif
+			#endif
+			UnityEngine.UI.Graphic self=(UnityEngine.UI.Graphic)checkSelf(l);
+			float v;
+			checkType(l,2,out v);
+			self.alpha=v;
 			pushValue(l,true);
 			return 1;
 		}
@@ -1146,7 +1274,9 @@ public class Lua_UnityEngine_UI_Graphic : LuaObject {
 		addMember(l,UnregisterDirtyMaterialCallback);
 		addMember(l,"defaultGraphicMaterial",get_defaultGraphicMaterial,null,false);
 		addMember(l,"color",get_color,set_color,true);
+		addMember(l,"grey",get_grey,set_grey,true);
 		addMember(l,"raycastTarget",get_raycastTarget,set_raycastTarget,true);
+		addMember(l,"alpha",get_alpha,set_alpha,true);
 		addMember(l,"depth",get_depth,null,true);
 		addMember(l,"rectTransform",get_rectTransform,null,true);
 		addMember(l,"canvas",get_canvas,null,true);
