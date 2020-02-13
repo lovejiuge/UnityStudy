@@ -17,6 +17,8 @@
         "delebtnob",
         "targetObject",
         "import",
-        "Button"
+        "Button",
+        "Debug",
+        "Dropdown"
     ]
 }

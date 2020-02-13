@@ -1,16 +1,15 @@
 require("baseclass")
 BagData = BagData or BaseClass()
-local typeList = {"AllType","PropType", "GiftType", "ExperCardType", "PerformType", "InscriptionType", "NewType"}
-local sprites = {}
 local spriteName = {"10006","10041","35305","35501","40517","c_bg31","c_bg30"}
 function BagData:__init()
     self.createDataList = {}
     self.showList = {}
     self.deleteList = {}
     self.itemList = {}
+    self.imagespr = {}
+    self.sprites = {}
+    self.typeList = {"AllType","PropType", "GiftType", "ExperCardType", "PerformType", "InscriptionType", "NewType"}
     self.itemCreate = {
-        ["AllType"] = { 
-        },
         ["PropType"] = { 
             [10006] = { ["Class"] = "衣服" ,["Name"] = "珍稀", ["Count"] = "10", ["Price"] = "100",["Describe"] = "程序猿小哥哥很懒，还没想好写什么。。。。。"},
             [10024] = { ["Class"] = "鞋子" ,["Name"] = "珍稀", ["Count"] = "10", ["Price"] = "100",["Describe"] = "程序猿小哥哥很懒，还没想好写什么。。。。。"},
@@ -49,10 +48,12 @@ function BagData:__init()
     }
     self:CreateDataListInit()
     self:SetTypeList()
+    self:LoadSprite()
+    self:LoadSpriteim()
     if BagData.Instance == nil then
         BagData.Instance = self
     else
-        error("BagData.Instance")
+        Debug.LogError("BagData.Instance 失败")
     end
 end
 
@@ -76,9 +77,9 @@ function BagData:CreateDataListInit()
 end
 
 function BagData:SetTypeList()
-    for Key, _ in pairs(self.itemCreate) do
-        self.showList[Key] = {}
-        self.deleteList[Key] = {}
+    for key, value in pairs(self.typeList) do
+        self.showList[value] = {}
+        self.deleteList[value] = {}
     end
 end
 
@@ -86,11 +87,29 @@ function BagData:LoadSprite()
     local path = "Assets/AssetBunldes/Images/ItemImg/item.image"
     local ob = GameObject.Find("GameManage"):GetComponent("GameStart")
     for _, value in pairs(spriteName) do
-        table.insert(sprites,ob:GetSprite(path,value))
+        table.insert(self.sprites,ob:GetSprite(path,value))
     end
 end
 
+function BagData:LoadSpriteim()
+    local path = "Assets/AssetBunldes/Images/ItemImg/item.image"
+    local ob = GameObject.Find("GameManage"):GetComponent("GameStart")
+    for _, value in pairs(self.itemCreate) do
+        for Icon, _ in pairs(value) do
+            table.insert(self.imagespr,Icon,ob:GetSprite(path,Icon))
+        end
+    end
+end
 function BagData:GetSprite(pos)
-    return sprites[pos]
+    return self.sprites[pos]
 end
 
+function BagData:GetSpriteIm(pos)
+    for key, value in pairs(self.imagespr) do
+        if pos == key then
+            return value
+        end 
+    end
+    Debug.LogError("未找到图片")
+    return false
+end

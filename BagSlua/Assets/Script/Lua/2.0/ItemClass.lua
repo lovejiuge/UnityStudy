@@ -25,7 +25,7 @@ function ItemClass:SetData(data)
 	self.price = data.price
     self.describe = data.describe
 	self.ob.gameObject:SetActive(true)
-	self.IconTransform.sprite = BagData.Instance:GetSprite(self.icon)
+	self.IconTransform.sprite = BagData.Instance:GetSpriteIm(self.icon)
 	self.CountTransform.text = self.count
 end
 

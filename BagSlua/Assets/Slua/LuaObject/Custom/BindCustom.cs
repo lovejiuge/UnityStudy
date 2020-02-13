@@ -17,6 +17,7 @@ namespace SLua {
 				Lua_AbsClass.reg,
 				Lua_HelloWorld.reg,
 				Lua_NewCoroutine.reg,
+				Lua_System_Collections_Generic_List_1_UnityEngine_Sprite.reg,
 				Lua_System_String.reg,
 			};
 			return list;
